@@ -1,0 +1,38 @@
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+
+  .chevrondown {
+    transition: transform 0.3s ease;
+  }
+
+  &:focus > .chevrondown {
+    transform: rotate(180deg);
+  }
+
+  .dropdown {
+    opacity: 0;
+    white-space: nowrap;
+    display: none;
+    min-width: 100px;
+    position: absolute;
+
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:focus > .dropdown {
+    position: absolute;
+    display: block;
+    opacity: 1;
+    right: 0;
+    top: 120%;
+    background-color: #21222d;
+    border: 1px solid #171821;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+}

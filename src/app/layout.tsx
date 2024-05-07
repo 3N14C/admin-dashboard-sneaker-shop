@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Provider } from "@/providers/provider";
+import { Navbar } from "@/components/navbar";
+import { cn } from "@/lib/utils";
+import { InputSearch } from "@/components/input-search";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +20,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn(inter.className, "bg-[#171821] text-[#87888c]")}>
+        <Provider>
+          <div className="flex items-start gap-[45px] px-[25px]">
+            <div className="">
+              <Navbar />
+            </div>
+            <div className="py-[20px] w-full flex flex-col gap-6 relative">
+              {/* <div className="w-0.5 bg-[#2C2D33] h-screen absolute -left-[16px]" /> */}
+              <InputSearch />
+              <div className="">{children}</div>
+            </div>
+          </div>
+        </Provider>
+      </body>
     </html>
   );
 }
