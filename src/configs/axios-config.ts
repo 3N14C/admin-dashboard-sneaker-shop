@@ -1,5 +1,4 @@
 import axios from "axios";
 export const axiosInstanse = axios.create({
-  baseURL: "https://sneaker-andriod-project.onrender.com/api",
-  withCredentials: true,
+  baseURL: "https://server-sneaker-shop.vercel.app/api",
 });

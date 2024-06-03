@@ -10,70 +10,70 @@ interface INavbar {
 export const navbar: INavbar[] = [
   {
     id: "dashboard",
-    name: "Dashboard",
+    name: "Панель",
     href: "/",
     icon: "Home",
   },
 
   {
-    id: "profile",
-    name: "Profile",
-    href: "/profile",
+    id: "users",
+    name: "Пользователи",
+    href: "/users",
     icon: "User",
   },
 
   {
     id: "leaderboard",
-    name: "Leaderboard",
+    name: "Таблица",
     href: "/leaderboard",
     icon: "BarChart2",
   },
 
   {
     id: "order",
-    name: "Order",
+    name: "Заказы",
     href: "/order",
     icon: "ShoppingCart",
   },
 
   {
     id: "product",
-    name: "Product",
-    href: "/product",
+    name: "Товары",
+    href: "/products",
     icon: "ShoppingBag",
   },
 
   {
     id: "sales-report",
-    name: "Sales Report",
+    name: "Отчет",
     href: "/sales-report",
     icon: "BarChart",
   },
 
   {
     id: "message",
-    name: "Message",
+    name: "Сообщения",
     href: "/message",
     icon: "MessageCircle",
   },
 
   {
     id: "settings",
-    name: "Settings",
+    name: "Настройки",
     href: "/settings",
     icon: "Settings",
   },
 
   {
     id: "favourite",
-    name: "Favourite",
+    name: "Избранное",
     href: "/favourite",
     icon: "Star",
   },
 
   {
     id: "history",
-    name: "History",
+    name: "История",
     href: "/history",
     icon: "History",
   },

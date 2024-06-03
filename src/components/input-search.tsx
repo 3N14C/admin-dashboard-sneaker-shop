@@ -10,8 +10,8 @@ export const InputSearch: FC = () => {
       <div className="flex items-center gap-2 bg-[#21222d] rounded-[8px] p-[15px] col-span-3">
         <Search />
         <input
-          placeholder="Search here..."
-          className="focus:outline-none bg-[#21222d]"
+          placeholder="Поиск..."
+          className="focus:outline-none bg-[#21222d] border-none focus:ring-0"
           type="text"
         />
       </div>

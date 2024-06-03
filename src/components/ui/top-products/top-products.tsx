@@ -1,40 +1,39 @@
+"use client";
+
 import { FC } from "react";
 import { DashboardTitle } from "../dashboard-title";
-import { axiosInstanse } from "@/configs/axios-config";
-import { ISneaker } from "@/types/sneaker.interface";
+import { useQuery } from "@tanstack/react-query";
+import { SneakerService } from "@/services/sneaker-service";
 import { cn } from "@/lib/utils";
 
-const getSneakers = async () => {
-  const response = await axiosInstanse.get<ISneaker[]>("/sneakers");
-
-  return response.data;
-};
-
-export const TopProducts: FC = async () => {
-  const sneakers = await getSneakers();
+export const TopProducts: FC = () => {
+  const { data: sneakers } = useQuery({
+    queryKey: ["top-products"],
+    queryFn: () => SneakerService.getAll({}),
+  });
 
   const topSneakers = sneakers
-    .sort((a, b) => b.soldCount - a.soldCount)
+    ?.sort((a, b) => b.soldCount - a.soldCount)
     .slice(0, 5);
 
   return (
     <div className="">
-      <DashboardTitle title="top products" />
+      <DashboardTitle title="лучшие товары" />
 
       <div className="">
         <div className="grid grid-cols-4 items-center border-b border-[#2c2d33] pt-[20px] pb-[10px]">
           <p className="font-medium text-[20px]">#</p>
-          <p className="font-medium text-[20px]">Name</p>
-          <p className="font-medium text-[20px]">Popularity</p>
-          <p className="font-medium text-[20px]">Sales</p>
+          <p className="font-medium text-[20px]">Название</p>
+          <p className="font-medium text-[20px]">Популярность</p>
+          <p className="font-medium text-[20px]">Продажи</p>
         </div>
 
         <div className="space-y-[10px]">
-          {topSneakers.map((sneaker, idx) => (
+          {topSneakers?.map((sneaker, idx) => (
             <div
               key={sneaker.id}
               className={cn("grid grid-cols-4 items-center py-[20px]", {
-                "border-b border-[#2c2d33]": idx !== topSneakers.length - 1,
+                "border-b border-[#2c2d33]": idx !== topSneakers?.length - 1,
               })}
             >
               <p className="text-white text-base font-medium">0{idx + 1}</p>
@@ -49,12 +48,7 @@ export const TopProducts: FC = async () => {
                     "bg-[#F9E0AE]": idx === 4,
                   })}
                   style={{
-                    width:
-                      idx === 0
-                        ? `5${sneaker.soldCount}%`
-                        : idx === 1
-                          ? `3${sneaker.soldCount}%`
-                          : `1${sneaker.soldCount}%`,
+                    width: `${sneaker.soldCount}%`,
                   }}
                 />
               </div>

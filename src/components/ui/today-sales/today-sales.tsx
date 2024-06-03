@@ -6,14 +6,12 @@ export const TodaySales: FC = () => {
   return (
     <div className="flex flex-col gap-[20px]">
       <div className="flex flex-col gap-[5px]">
-        <DashboardTitle title="today's sales" />
-        <p className="capitalize font-medium text-[22px]">sales summary</p>
+        <DashboardTitle title="Сегодняшние продажи" />
+        <p className="font-medium text-[22px]">Итоги за сегодня</p>
       </div>
 
       <div className="">
-        <Suspense fallback={<>Loading...</>}>
-          <StatisticCardList />
-        </Suspense>
+        <StatisticCardList />
       </div>
     </div>
   );
