@@ -28,7 +28,7 @@ export const MessageList: FC<IProps> = ({ chatId }) => {
   const { data: messages } = useQuery({
     queryKey: ["all-messages-by-chat", chatId, isLoading],
     queryFn: () => MessageService.getAllByChatId({ id: chatId }),
-    // refetchInterval: 1000,
+    refetchInterval: 1000,
   });
 
   return (
