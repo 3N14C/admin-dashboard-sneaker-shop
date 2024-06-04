@@ -23,6 +23,7 @@ export const ChatCard: FC<IProps> = ({ chat }) => {
       {
         chat.message.map((message) => (
           <div key={message.id} className="">
+            <p className="text-[#80a8a3]">{message.user.username}</p>
             <div className="">
               <p className="">{message.message}</p>
               <div className="flex items-center gap-3">
