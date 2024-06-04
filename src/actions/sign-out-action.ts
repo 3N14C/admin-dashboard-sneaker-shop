@@ -13,6 +13,6 @@ export const signOut = async () => {
   if (response.status !== 200) return;
 
   cookies().delete("admin-dashboard-token");
-
+  
   return response.data;
 };

@@ -6,7 +6,34 @@ export const middleware = async (req: NextRequest) => {
   if (!token && req.nextUrl.pathname.includes("/profile"))
     return NextResponse.redirect(new URL("/auth/sign-in", req.url));
 
-  if (!token && req.nextUrl.pathname === '/')
+  if (!token && req.nextUrl.pathname === "/")
+    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+
+  if (!token && req.nextUrl.pathname.includes("/users"))
+    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+
+  if (!token && req.nextUrl.pathname.includes("/leaderboard"))
+    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+
+  if (!token && req.nextUrl.pathname.includes("/order"))
+    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+
+  if (!token && req.nextUrl.pathname.includes("/products"))
+    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+
+  if (!token && req.nextUrl.pathname.includes("/sales-report"))
+    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+
+  if (!token && req.nextUrl.pathname.includes("/message"))
+    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+
+  if (!token && req.nextUrl.pathname.includes("/settings"))
+    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+
+  if (!token && req.nextUrl.pathname.includes("/favourite"))
+    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+
+  if (!token && req.nextUrl.pathname.includes("/history"))
     return NextResponse.redirect(new URL("/auth/sign-in", req.url));
 
   return NextResponse.next();

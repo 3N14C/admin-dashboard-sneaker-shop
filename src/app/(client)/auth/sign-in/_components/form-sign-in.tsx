@@ -1,15 +1,17 @@
 "use client";
 
-import { AuthService } from "@/services/auth-service";
 import { DashboardCardLayout } from "@/components/ui/today-sales/dashboard-card-layout";
+import { AuthService } from "@/services/auth-service";
 import { formSignIn } from "@/validators/form-sign-in";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
+import { Loader2 } from "lucide-react";
 import { Link } from "next-view-transitions";
+import { useRouter } from "next/navigation";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
-import { useRouter } from "next/navigation";
 
 export const FormSignIn: FC = () => {
   const router = useRouter();
@@ -25,11 +27,11 @@ export const FormSignIn: FC = () => {
   const { mutateAsync, isPending } = useMutation({
     mutationFn: AuthService.signIn,
     onSuccess: (data) => {
-      console.log(data.token);
+      toast.success("Аутентификация прошла успешно");
       return router.replace("/");
     },
     onError: (error) => {
-      console.log(error);
+      return toast.error("Неверная почта или пароль");
     },
   });
 
@@ -63,7 +65,7 @@ export const FormSignIn: FC = () => {
             <input
               {...register("password")}
               className="focu:outline-none bg-[#171821] rounded-[6px] px-[15px] py-[10px]"
-              type="text"
+              type="password"
               name="password"
               placeholder="Password..."
             />
@@ -71,8 +73,13 @@ export const FormSignIn: FC = () => {
           </div>
         </div>
 
-        <button type="submit">{isPending ? "Loading..." : "Войти"}</button>
-        <Link href={"/auth/sign-up"}>Новый акк</Link>
+        <button
+          disabled={isPending}
+          type="submit"
+          className="mt-10 bg-[#171821] px-20 py-4 rounded-lg hover:scale-105 hover:bg-[#46555b] transition duration-300"
+        >
+          {isPending ? <Loader2 className="animate-spin" /> : "Войти"}
+        </button>
       </form>
     </DashboardCardLayout>
   );
