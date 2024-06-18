@@ -25,14 +25,14 @@ export const Profile: FC = () => {
           <div className="flex items-center hover:bg-[#171821] transition duration-300 px-3">
             <User />
             <Link href="/my-profile" className="px-4 py-2 text-sm">
-              Your Profile
+              Профиль
             </Link>
           </div>
 
           <div className="flex items-center hover:bg-[#171821] transition duration-300 px-3">
             <Users />
             <Link href="/accounts" className="px-4 py-2 text-sm">
-              Accounts
+              Аккаунты
             </Link>
           </div>
         </div>
