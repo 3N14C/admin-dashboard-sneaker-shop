@@ -56,7 +56,7 @@ export const FormSignIn: FC = () => {
               className="focu:outline-none bg-[#171821] rounded-[6px] px-[15px] py-[10px]"
               type="email"
               name="email"
-              placeholder="Email..."
+              placeholder="Электронный адрес"
             />
             {errors.email && <p>{errors.email.message}</p>}
           </div>
@@ -67,7 +67,7 @@ export const FormSignIn: FC = () => {
               className="focu:outline-none bg-[#171821] rounded-[6px] px-[15px] py-[10px]"
               type="password"
               name="password"
-              placeholder="Password..."
+              placeholder="Пароль"
             />
             {errors.password && <p>{errors.password.message}</p>}
           </div>
