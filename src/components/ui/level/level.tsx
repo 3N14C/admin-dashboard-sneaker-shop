@@ -15,19 +15,19 @@ import {
 
 const data = [
   {
-    name: "Page A",
+    name: "1",
     uv: 4000,
     pv: 2400,
     amt: 2400,
   },
   {
-    name: "Page B",
+    name: "2",
     uv: 3000,
     pv: 1398,
     amt: 2210,
   },
   {
-    name: "Page C",
+    name: "3",
     uv: 2000,
     pv: 9800,
     amt: 2290,
@@ -39,13 +39,13 @@ const data = [
     amt: 2000,
   },
   {
-    name: "Page E",
+    name: "4",
     uv: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
-    name: "Page F",
+    name: "5",
     uv: 2390,
     pv: 3800,
     amt: 2500,
@@ -63,7 +63,7 @@ export const Level: FC = () => {
 
   return (
     <div className="">
-      <DashboardTitle title="Level" />
+      <DashboardTitle title="Доход" />
 
       <ResponsiveContainer width={370} height={300}>
         <BarChart width={900} height={300} data={data}>
