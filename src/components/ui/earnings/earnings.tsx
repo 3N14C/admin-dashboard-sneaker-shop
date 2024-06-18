@@ -64,7 +64,7 @@ export const Earnings: FC = () => {
 
   return (
     <div className="w-full">
-      <DashboardTitle title="Earnings" />
+      <DashboardTitle title="Доход" />
 
      <ResponsiveContainer width={400} height={200}>
         <PieChart width={400} height={500}>
